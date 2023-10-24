@@ -63,7 +63,7 @@ export default function TodoList() {
                 className="flex gap-2 my-2"
             >
                 <input
-                    className="rounded w-full p-2"
+                    className="rounded w-full p-2 text-gray-800"
                     type="text"
                     placeholder="输入你的任务代办"
                     value={newTaskText}
