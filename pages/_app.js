@@ -17,34 +17,34 @@ function MyApp({ Component, pageProps }) {
     setUser(user)
   }
   return (
-  <div>
-    <nav className="p-6 border-b border-gray-300">
-      <Link href="/">
-        <a className="m-6">Home</a>
-      </Link>
-      {
-        user && (
-          <Link href="/create-post">
-            <a className="m-6">Create Post</a>
-          </Link>
-        )
-      }
-      {
-        user && (
-          <Link href="/my-posts">
-            <a className="m-6">My Posts</a>
-          </Link>
-        )
-      }
-      <Link href="/profile">
-        <a className="m-6">Profile</a>
-      </Link>
-    </nav>
-    <div className="py-8 px-16">
-      <Component {...pageProps} />
+    <div>
+      <nav className="p-6 border-b border-gray-300">
+        <Link href="/" className="m-6">
+          Home
+        </Link>
+        {
+          user && (
+            <Link href="/create-post" className="m-6">
+              Create Post
+            </Link>
+          )
+        }
+        {
+          user && (
+            <Link href="/my-posts" className="m-6">
+              My Posts
+            </Link>
+          )
+        }
+        <Link href="/profile" className="m-6">
+          Profile
+        </Link>
+      </nav>
+      <div className="py-8 px-16">
+        <Component {...pageProps} />
+      </div>
     </div>
-  </div>
-  )
+  );
 }
 
 export default MyApp
