@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Supablog</title>
+        <title>ArterNing Work</title>
       </Head>
 
       <h1 className="text-3xl font-semibold tracking-wide mt-6 mb-2">Posts</h1>

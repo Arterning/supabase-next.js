@@ -25,6 +25,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/nprogress": "^0.2.2",
     "autoprefixer": "^10.2.6",
     "postcss": "^8.3.0",
     "tailwindcss": "^2.1.4"

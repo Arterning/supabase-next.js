@@ -52,6 +52,9 @@ dependencies:
     version: registry.npmmirror.com/uuid@8.3.2
 
 devDependencies:
+  '@types/nprogress':
+    specifier: ^0.2.2
+    version: registry.npmmirror.com/@types/nprogress@0.2.2
   autoprefixer:
     specifier: ^10.2.6
     version: registry.npmmirror.com/autoprefixer@10.4.16(postcss@8.4.31)
@@ -369,6 +372,12 @@ packages:
     dependencies:
       undici-types: registry.npmmirror.com/undici-types@5.25.3
     dev: false
+
+  registry.npmmirror.com/@types/nprogress@0.2.2:
+    resolution: {integrity: sha512-2wLrSJXLztGmr7wXwM0hA/wuIOY9DznVdd+ZFofHOiXcj9JnVt+2ZeLRJ7v5ZVlmheSkUOSg3Q3O4Ce7yji79A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/nprogress/-/nprogress-0.2.2.tgz}
+    name: '@types/nprogress'
+    version: 0.2.2
+    dev: true
 
   registry.npmmirror.com/@types/parse-json@4.0.1:
     resolution: {integrity: sha512-3YmXzzPAdOTVljVMkTMBdBEvlOLg2cDQaDhnnhT3nT9uDbnJzjWhKlzb+desT12Y7tGqaN6d+AbozcKzyL36Ng==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/parse-json/-/parse-json-4.0.1.tgz}
