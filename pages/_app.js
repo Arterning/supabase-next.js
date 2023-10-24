@@ -36,6 +36,13 @@ function MyApp({ Component, pageProps }) {
             </Link>
           )
         }
+        {
+          user && (
+            <Link href="/todo" className="m-6">
+              TodoTasks
+            </Link>
+          )
+        }
         <Link href="/profile" className="m-6">
           Profile
         </Link>
