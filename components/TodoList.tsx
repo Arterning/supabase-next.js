@@ -77,7 +77,7 @@ export default function TodoList() {
                 </button>
             </form>
             {!!errorText && <Alert text={errorText} />}
-            <div className="bg-white shadow overflow-hidden rounded-md">
+            <div className="shadow overflow-hidden rounded-md">
                 <ul>
                     {todos.map((todo) => (
                         <Todo key={todo.id} todo={todo} onDelete={() => deleteTodo(todo.id)} />
@@ -108,7 +108,7 @@ const Todo = ({ todo, onDelete }: { todo: Todos; onDelete: () => void }) => {
     }
 
     return (
-        <li className="w-full block cursor-pointer hover:bg-gray-200 focus:outline-none focus:bg-gray-200 transition duration-150 ease-in-out">
+        <li className="w-full block cursor-pointer hover:bg-green-500 focus:outline-none focus:bg-gray-200 transition duration-150 ease-in-out">
             <div className="flex items-center px-4 py-4 sm:px-6">
                 <div className="min-w-0 flex-1 flex items-center">
                     <div className="text-sm leading-5 font-medium truncate">{todo.task}</div>

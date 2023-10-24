@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../api'
 import '../styles/globals.css'
 import {NProgress} from "../components/NProgress";
+import ThemeSwitch from "../components/ThemeSwitch";
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null);
@@ -47,6 +48,7 @@ function MyApp({ Component, pageProps }) {
         <Link href="/profile" className="m-6">
           Profile
         </Link>
+        <ThemeSwitch />
       </nav>
       <div className="py-8 px-16">
         <NProgress />
