@@ -142,7 +142,7 @@ const Todo = ({ todo, onDelete }: { todo: Todos; onDelete: () => void }) => {
     )
 }
 
-const Alert = ({ text }): JSX.Element => (
+const Alert = ({ text }: {text: string}): JSX.Element => (
     <div className="rounded-md bg-red-100 p-4 my-3">
         <div className="text-sm leading-5 text-red-700">{text}</div>
     </div>
