@@ -1,9 +1,9 @@
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
-import { supabase } from '../api'
+import {useEffect, useState} from 'react'
+import {supabase} from '../api'
 import '../styles/globals.css'
 import {NProgress} from "../components/NProgress";
-import ThemeSwitch from "../components/ThemeSwitch";
+import Header from "../components/Header";
+
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null);
@@ -20,38 +20,9 @@ function MyApp({ Component, pageProps }) {
   }
   return (
     <div>
-      <nav className="p-6 border-b border-gray-300">
-        <Link href="/" className="m-6 p-3 rounded hover:bg-green-600">
-          Home
-        </Link>
-        {
-          user && (
-            <Link href="/create-post" className="m-6 p-3 rounded hover:bg-green-600">
-              Create Post
-            </Link>
-          )
-        }
-        {
-          user && (
-            <Link href="/my-posts" className="m-6 p-3 rounded hover:bg-green-600">
-              My Posts
-            </Link>
-          )
-        }
-        {
-          user && (
-            <Link href="/todo" className="m-6 p-3 rounded hover:bg-green-600">
-              TodoTasks
-            </Link>
-          )
-        }
-        <Link href="/profile" className="m-6 p-3 rounded hover:bg-green-600">
-          Profile
-        </Link>
-        <ThemeSwitch />
-      </nav>
+      <Header user={user}/>
       <div className="py-8 px-16">
-        <NProgress />
+        <NProgress/>
         <Component {...pageProps} />
       </div>
     </div>
