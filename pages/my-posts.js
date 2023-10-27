@@ -2,9 +2,12 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { supabase } from '../api'
+import {ClipLoader} from "react-spinners";
 
 export default function MyPosts() {
   const [posts, setPosts] = useState([])
+  const [loading, setLoading] = useState(true)
+
   useEffect(() => {
     fetchPosts()
   }, [])
@@ -16,6 +19,7 @@ export default function MyPosts() {
       .select('*')
       .filter('user_id', 'eq', user.id)
     setPosts(data)
+    setLoading(false)
   }
   async function deletePost(id) {
     await supabase
@@ -24,6 +28,13 @@ export default function MyPosts() {
       .match({ id })
     fetchPosts()
   }
+
+  if (loading) return (
+      <div className="w-full h-ful">
+        <ClipLoader className="mx-auto my-auto" color="#36D7B7" loading={loading} size={150} />
+      </div>
+  )
+
   return (
     <div>
       <h1 className="text-3xl font-semibold tracking-wide mt-6 mb-2">My Posts</h1>

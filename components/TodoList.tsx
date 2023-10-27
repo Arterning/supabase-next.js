@@ -1,6 +1,7 @@
 import { Database } from '@/lib/schema'
 import { useEffect, useState } from 'react'
 import { supabase } from 'api'
+import {ClipLoader} from "react-spinners";
 
 type Todos = Database['public']['Tables']['todos']['Row']
 
@@ -8,6 +9,7 @@ export default function TodoList() {
     const [todos, setTodos] = useState<Todos[]>([])
     const [newTaskText, setNewTaskText] = useState('')
     const [errorText, setErrorText] = useState('')
+    const [loading, setLoading] = useState(true)
 
     const user = supabase.auth.user()
 
@@ -19,6 +21,7 @@ export default function TodoList() {
 
         if (error) console.log('error', error)
         else setTodos(todos)
+        setLoading(false)
     }
 
     useEffect(() => {
@@ -51,6 +54,12 @@ export default function TodoList() {
             console.log('error', error)
         }
     }
+
+    if (loading) return (
+        <div className="mx-auto my-auto">
+            <ClipLoader color="#36D7B7" loading={loading} size={150} />
+        </div>
+    )
 
     return (
         <div className="w-full">

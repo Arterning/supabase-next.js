@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { supabase } from '../api'
+import {ClipLoader} from 'react-spinners';
 
 export default function Home() {
   const [posts, setPosts] = useState([])
@@ -24,7 +25,11 @@ export default function Home() {
     setPosts(data)
     setLoading(false)
   }
-  if (loading) return <p className="text-2xl">Loading ...</p>
+  if (loading) return (
+      <div className="w-full h-ful">
+          <ClipLoader className="mx-auto my-auto" color="#36D7B7" loading={loading} size={150} />
+      </div>
+  )
   if (!posts.length) return <p className="text-2xl">No posts.</p>
 
   return (
