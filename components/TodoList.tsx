@@ -1,7 +1,7 @@
 import { Database } from '@/lib/schema'
 import { useEffect, useState } from 'react'
 import { supabase } from 'api'
-import {ClipLoader} from "react-spinners";
+import {ClipLoader, DotLoader} from "react-spinners";
 
 type Todos = Database['public']['Tables']['todos']['Row']
 
@@ -89,7 +89,7 @@ export default function TodoList() {
             <div className="shadow overflow-hidden rounded-md">
                 <ul>
                     {todos.map((todo) => (
-                        <Todo key={todo.id} todo={todo} onDelete={() => deleteTodo(todo.id)} />
+                        <Todo key={todo.id} todo={todo} onDelete={() => deleteTodo(todo.id)} setLoading = {setLoading}/>
                     ))}
                 </ul>
             </div>
@@ -99,9 +99,11 @@ export default function TodoList() {
 
 const Todo = ({ todo, onDelete }: { todo: Todos; onDelete: () => void }) => {
     const [isCompleted, setIsCompleted] = useState(todo.is_complete)
+    const [loading, setLoading] = useState(false)
 
     const toggle = async () => {
         try {
+            setLoading(true)
             const { data } = await supabase
                 .from('todos')
                 .update({ is_complete: !isCompleted })
@@ -109,22 +111,28 @@ const Todo = ({ todo, onDelete }: { todo: Todos; onDelete: () => void }) => {
                 .throwOnError()
                 .select()
                 .single()
-
+            setLoading(false)
             if (data) setIsCompleted(data.is_complete)
         } catch (error) {
             console.log('error', error)
         }
     }
 
+    if (loading) return (
+        <div className="mx-auto my-auto">
+            <DotLoader color="#36D7B7" loading={loading} size={150} />
+        </div>
+    )
+
     return (
         <li className="w-full block cursor-pointer hover:bg-green-500 focus:outline-none focus:bg-gray-200 transition duration-150 ease-in-out">
             <div className="flex items-center px-4 py-4 sm:px-6">
                 <div className="min-w-0 flex-1 flex items-center">
-                    <div className="text-sm leading-5 font-medium truncate">{todo.task}</div>
+                    <div className={`text-sm leading-5 font-medium truncate ${isCompleted ? 'line-through' : ''}`}>{todo.task}</div>
                 </div>
                 <div>
                     <input
-                        className="cursor-pointer"
+                        className="cursor-pointer w-6 h-6 rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         onChange={(e) => toggle()}
                         type="checkbox"
                         checked={isCompleted}
