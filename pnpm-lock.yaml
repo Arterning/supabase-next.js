@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@react-spring/web':
+    specifier: ^9.7.3
+    version: registry.npmmirror.com/@react-spring/web@9.7.3(react-dom@18.2.0)(react@18.2.0)
   '@supabase/supabase-js':
     specifier: ^1.13.1
     version: registry.npmmirror.com/@supabase/supabase-js@1.35.7
@@ -20,6 +23,12 @@ dependencies:
   easymde:
     specifier: ^2.15.0
     version: registry.npmmirror.com/easymde@2.18.0
+  highcharts:
+    specifier: ^11.1.0
+    version: registry.npmmirror.com/highcharts@11.1.0
+  highcharts-react-official:
+    specifier: ^3.2.1
+    version: registry.npmmirror.com/highcharts-react-official@3.2.1(highcharts@11.1.0)(react@18.2.0)
   next:
     specifier: 13.3.1
     version: registry.npmmirror.com/next@13.3.1(react-dom@18.2.0)(react@18.2.0)
@@ -224,6 +233,68 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': registry.npmmirror.com/@nodelib/fs.scandir@2.1.5
       fastq: registry.npmmirror.com/fastq@1.15.0
+
+  registry.npmmirror.com/@react-spring/animated@9.7.3(react@18.2.0):
+    resolution: {integrity: sha512-5CWeNJt9pNgyvuSzQH+uy2pvTg8Y4/OisoscZIR8/ZNLIOI+CatFBhGZpDGTF/OzdNFsAoGk3wiUYTwoJ0YIvw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@react-spring/animated/-/animated-9.7.3.tgz}
+    id: registry.npmmirror.com/@react-spring/animated/9.7.3
+    name: '@react-spring/animated'
+    version: 9.7.3
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@react-spring/shared': registry.npmmirror.com/@react-spring/shared@9.7.3(react@18.2.0)
+      '@react-spring/types': registry.npmmirror.com/@react-spring/types@9.7.3
+      react: registry.npmmirror.com/react@18.2.0
+    dev: false
+
+  registry.npmmirror.com/@react-spring/core@9.7.3(react@18.2.0):
+    resolution: {integrity: sha512-IqFdPVf3ZOC1Cx7+M0cXf4odNLxDC+n7IN3MDcVCTIOSBfqEcBebSv+vlY5AhM0zw05PDbjKrNmBpzv/AqpjnQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@react-spring/core/-/core-9.7.3.tgz}
+    id: registry.npmmirror.com/@react-spring/core/9.7.3
+    name: '@react-spring/core'
+    version: 9.7.3
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@react-spring/animated': registry.npmmirror.com/@react-spring/animated@9.7.3(react@18.2.0)
+      '@react-spring/shared': registry.npmmirror.com/@react-spring/shared@9.7.3(react@18.2.0)
+      '@react-spring/types': registry.npmmirror.com/@react-spring/types@9.7.3
+      react: registry.npmmirror.com/react@18.2.0
+    dev: false
+
+  registry.npmmirror.com/@react-spring/shared@9.7.3(react@18.2.0):
+    resolution: {integrity: sha512-NEopD+9S5xYyQ0pGtioacLhL2luflh6HACSSDUZOwLHoxA5eku1UPuqcJqjwSD6luKjjLfiLOspxo43FUHKKSA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@react-spring/shared/-/shared-9.7.3.tgz}
+    id: registry.npmmirror.com/@react-spring/shared/9.7.3
+    name: '@react-spring/shared'
+    version: 9.7.3
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@react-spring/types': registry.npmmirror.com/@react-spring/types@9.7.3
+      react: registry.npmmirror.com/react@18.2.0
+    dev: false
+
+  registry.npmmirror.com/@react-spring/types@9.7.3:
+    resolution: {integrity: sha512-Kpx/fQ/ZFX31OtlqVEFfgaD1ACzul4NksrvIgYfIFq9JpDHFwQkMVZ10tbo0FU/grje4rcL4EIrjekl3kYwgWw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@react-spring/types/-/types-9.7.3.tgz}
+    name: '@react-spring/types'
+    version: 9.7.3
+    dev: false
+
+  registry.npmmirror.com/@react-spring/web@9.7.3(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-BXt6BpS9aJL/QdVqEIX9YoUy8CE6TJrU0mNCqSoxdXlIeNcEBWOfIyE6B14ENNsyQKS3wOWkiJfco0tCr/9tUg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@react-spring/web/-/web-9.7.3.tgz}
+    id: registry.npmmirror.com/@react-spring/web/9.7.3
+    name: '@react-spring/web'
+    version: 9.7.3
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@react-spring/animated': registry.npmmirror.com/@react-spring/animated@9.7.3(react@18.2.0)
+      '@react-spring/core': registry.npmmirror.com/@react-spring/core@9.7.3(react@18.2.0)
+      '@react-spring/shared': registry.npmmirror.com/@react-spring/shared@9.7.3(react@18.2.0)
+      '@react-spring/types': registry.npmmirror.com/@react-spring/types@9.7.3
+      react: registry.npmmirror.com/react@18.2.0
+      react-dom: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
+    dev: false
 
   registry.npmmirror.com/@supabase/functions-js@1.3.4:
     resolution: {integrity: sha512-yYVgkECjv7IZEBKBI3EB5Q7R1p0FJ10g8Q9N7SWKIHUU6i6DnbEGHIMFLyQRm1hmiNWD8fL7bRVEYacmTRJhHw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@supabase/functions-js/-/functions-js-1.3.4.tgz}
@@ -1025,6 +1096,25 @@ packages:
     resolution: {integrity: sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz}
     name: hex-color-regex
     version: 1.1.0
+
+  registry.npmmirror.com/highcharts-react-official@3.2.1(highcharts@11.1.0)(react@18.2.0):
+    resolution: {integrity: sha512-hyQTX7ezCxl7JqumaWiGsroGWalzh24GedQIgO3vJbkGOZ6ySRAltIYjfxhrq4HszJOySZegotEF7v+haQ75UA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/highcharts-react-official/-/highcharts-react-official-3.2.1.tgz}
+    id: registry.npmmirror.com/highcharts-react-official/3.2.1
+    name: highcharts-react-official
+    version: 3.2.1
+    peerDependencies:
+      highcharts: '>=6.0.0'
+      react: '>=16.8.0'
+    dependencies:
+      highcharts: registry.npmmirror.com/highcharts@11.1.0
+      react: registry.npmmirror.com/react@18.2.0
+    dev: false
+
+  registry.npmmirror.com/highcharts@11.1.0:
+    resolution: {integrity: sha512-vhmqq6/frteWMx0GKYWwEFL25g4OYc7+m+9KQJb/notXbNtIb8KVy+ijOF7XAFqF165cq0pdLIePAmyFY5ph3g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/highcharts/-/highcharts-11.1.0.tgz}
+    name: highcharts
+    version: 11.1.0
+    dev: false
 
   registry.npmmirror.com/hsl-regex@1.0.0:
     resolution: {integrity: sha512-M5ezZw4LzXbBKMruP+BNANf0k+19hDQMgpzBIYnya//Al+fjNct9Wf3b1WedLqdEs2hKBvxq/jh+DsHJLj0F9A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/hsl-regex/-/hsl-regex-1.0.0.tgz}

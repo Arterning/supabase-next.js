@@ -16,7 +16,9 @@ function CreatePost() {
     setPost(() => ({ ...post, [e.target.name]: e.target.value }))
   }
   async function createNewPost() {
-    if (!title || !content) return
+    if (!title || !content) {
+        alert('请输入标题和内容')
+    }
     const user = supabase.auth.user()
     const id = uuid()
     post.id = id
@@ -37,7 +39,7 @@ function CreatePost() {
         placeholder="Title"
         value={post.title}
         className="border-b pb-2 text-lg my-4 focus:outline-none w-full font-light text-gray-500 placeholder-gray-500 y-2"
-      /> 
+      />
       <SimpleMDE value={post.content} onChange={value => setPost({ ...post, content: value })} />
       <button
         type="button"
