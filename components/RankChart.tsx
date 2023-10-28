@@ -33,7 +33,7 @@ const RankChart = (props: HighchartsReact.Props) => {
             zooming: {
                 type: 'xy'
             },
-            backgroundColor: 'rgba(36,180,126,0.41)' // 设置图表的背景颜色
+            backgroundColor: 'var(--chart-color)' // 设置图表的背景颜色
         },
         title: {
             text: '积分增长图'
@@ -55,7 +55,7 @@ const RankChart = (props: HighchartsReact.Props) => {
                 }
             },
             area: {
-                fillOpacity: 0.6
+                fillOpacity: 0.5
             }
         },
         series: [{
@@ -65,7 +65,7 @@ const RankChart = (props: HighchartsReact.Props) => {
             type:'area'
         }, {
             name: '宁哥',
-            color: 'rgba(48,86,78,0.68)',
+            color: 'rgba(48,82,86,0.48)',
             data: ning,
             type:'area'
         }]

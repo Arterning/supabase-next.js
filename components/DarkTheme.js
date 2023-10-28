@@ -2,8 +2,9 @@ function DarkTheme() {
     return (
         <style jsx global>{`
           :root {
-            --background-color: rgb(14, 14, 14);
+            --background-color: #0d1521;
             --text-color: rgb(230, 230, 230);
+            --chart-color: rgb(255, 255, 255);
           }
         `}</style>
     );
