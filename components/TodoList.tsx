@@ -33,7 +33,7 @@ export default function TodoList() {
         if (task.length) {
             const { data: todo, error } = await supabase
                 .from('todos')
-                .insert({ task, user_id: user?.id })
+                .insert({ task, user_id: user?.id, remark: '我是一个备注' })
                 .select()
                 .single()
 

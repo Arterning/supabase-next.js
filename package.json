@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@react-spring/web": "^9.7.3",
+    "@supabase/auth-ui-react": "^0.4.6",
+    "@supabase/auth-ui-shared": "^0.1.8",
     "@supabase/supabase-js": "^1.13.1",
     "@supabase/ui": "^0.27.2",
     "@tailwindcss/typography": "^0.4.1",

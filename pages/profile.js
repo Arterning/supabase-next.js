@@ -22,10 +22,12 @@ function Profile(props) {
 
 export default function AuthProfile() {
     return (
-        <Auth.UserContextProvider supabaseClient={supabase}>
-            <Profile supabaseClient={supabase}>
-                <Auth supabaseClient={supabase}/>
-            </Profile>
-        </Auth.UserContextProvider>
+        <div className="mx-auto w-1/2">
+            <Auth.UserContextProvider supabaseClient={supabase}>
+                <Profile supabaseClient={supabase}>
+                    <Auth supabaseClient={supabase}/>
+                </Profile>
+            </Auth.UserContextProvider>
+        </div>
     )
 }
