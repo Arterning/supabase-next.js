@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import * as Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import {serviceGetRankHistory} from "@/services/rankHistory"
 
 // The wrapper exports only a default component that at the same time is a
 // namespace for the related Props interface (HighchartsReact.Props) and
@@ -19,8 +18,8 @@ const mock_ning = [[1689177600000, 20.52], [1690128000000, 55.36], [169087853946
 
 const RankChart = (props: HighchartsReact.Props) => {
     const chartComponentRef = useRef<HighchartsReact.RefObject>(null)
-    const [xiaohui, setXiaohui] = useState([])
-    const [ning, setNing] = useState([])
+    const [xiaohui, setXiaohui] = useState<any>([])
+    const [ning, setNing] = useState<any>([])
 
     useEffect(() => {
         setNing(mock_ning)
@@ -59,13 +58,13 @@ const RankChart = (props: HighchartsReact.Props) => {
             }
         },
         series: [{
-            name: '小慧',
-            color: 'rgba(36,180,126)',
+            name: '宁哥',
+            color: 'rgba(1,251,222,0.39)',
             data: xiaohui,
             type:'area'
         }, {
-            name: '宁哥',
-            color: 'rgba(48,82,86,0.48)',
+            name: '小慧',
+            color: 'rgb(255,192,203)',
             data: ning,
             type:'area'
         }]

@@ -89,7 +89,7 @@ export default function TodoList() {
             <div className="shadow overflow-hidden rounded-md">
                 <ul>
                     {todos.map((todo) => (
-                        <Todo key={todo.id} todo={todo} onDelete={() => deleteTodo(todo.id)} setLoading = {setLoading}/>
+                        <Todo key={todo.id} todo={todo} onDelete={() => deleteTodo(todo.id)}/>
                     ))}
                 </ul>
             </div>

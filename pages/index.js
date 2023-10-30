@@ -30,7 +30,7 @@ export default function Home() {
           <ClipLoader className="mx-auto my-auto" color="#36D7B7" loading={loading} size={150} />
       </div>
   )
-  if (!posts.length) return <p className="text-2xl">No posts.</p>
+  if (!posts?.length) return <p className="text-2xl">No posts.</p>
 
   return (
     <div>

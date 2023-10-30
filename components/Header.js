@@ -17,11 +17,14 @@ export default function Header({user}) {
                 <Link href="/todo" className="m-6 p-3 rounded hover:bg-green-600">
                     TodoTasks
                 </Link>
-                <Link href="/rank" className="m-6 p-3 rounded hover:bg-green-600">
-                    Rank
-                </Link>
             </>
         )}
+        <Link href="/rank" className="m-6 p-3 rounded hover:bg-green-600">
+            Rank
+        </Link>
+        <Link href="/upload" className="m-6 p-3 rounded hover:bg-green-600">
+            Upload
+        </Link>
         <Link href="/profile" className="m-6 p-3 rounded hover:bg-green-600">
             Profile
         </Link>

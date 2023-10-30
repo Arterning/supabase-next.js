@@ -6,6 +6,7 @@
 :root {
     --background-color: white;
     --text-color: black;
+    --chart-color: rgba(255, 240, 192, 0.47);
 }
 
 body {
