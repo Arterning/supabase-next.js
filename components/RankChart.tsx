@@ -7,9 +7,6 @@ import HighchartsReact from 'highcharts-react-official'
 // RefObject interface (HighchartsReact.RefObject). All other interfaces
 // like Options come from the Highcharts module itself.
 
-const mock_xiaohui = [[1689177600000, 50.52], [1690128000000, 147.36], [1690878539465, 146.95]]
-const mock_ning = [[1689177600000, 20.52], [1690128000000, 55.36], [1690878539465, 65.95]]
-
 
 
 // React supports function components as a simple way to write components that

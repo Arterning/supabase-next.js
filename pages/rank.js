@@ -1,6 +1,6 @@
-import RankChart from "../components/RankChart";
 import { useSpring, animated } from '@react-spring/web'
 import Image from "next/image";
+import RankBarChart from "../components/RankBarChart";
 
 export default function Rank() {
     const springs = useSpring({
@@ -22,7 +22,7 @@ export default function Rank() {
                     borderRadius: 8,
                     ...springs,
                 }}>
-                <RankChart/>
+                <RankBarChart/>
             </animated.div>
 
             <animated.div style={{
