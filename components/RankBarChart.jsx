@@ -4,9 +4,9 @@ import HighchartsReact from 'highcharts-react-official'
 import {supabase} from "@/api";
 
 
-const RankBarChart = (props: HighchartsReact.Props) => {
-    const chartComponentRef = useRef<HighchartsReact.RefObject>(null)
-    const [data, setData] = useState<any>([])
+const RankBarChart = (props) => {
+    const chartComponentRef = useRef(null)
+    const [data, setData] = useState([])
 
     useEffect(() => {
         async function fetchData2() {
@@ -23,23 +23,23 @@ const RankBarChart = (props: HighchartsReact.Props) => {
                 const resp = await supabase.from('ranks')
                     .select('*')
 
-                const jsonData = resp.data;
+                const jsonData = resp.data || [];
                 console.log(jsonData)
 
                 // 用户ID到名称的映射
-                var userMapping = {
+                const userMapping = {
                     "76d9290a-feba-4773-9c11-d43b9c180983": "小慧",
                     "f94079be-ed63-40b9-9095-c10689357919": "宁哥",
                     // 其他用户ID的映射
                 };
 
                 // 转换数据的数组
-                var resultData = [];
+                const resultData = [];
 
-                jsonData.forEach(function(item) {
-                    var userId = item.user_id;
-                    var name = userMapping[userId] || "未知用户";
-                    var vv = item.vv;
+                jsonData?.forEach(function(item) {
+                    const userId = item.user_id
+                    const name = userMapping[userId] || "未知用户";
+                    const vv = item.vv
                     resultData.push([name, vv]);
                 });
 
@@ -56,7 +56,7 @@ const RankBarChart = (props: HighchartsReact.Props) => {
 
     }, [])
 
-    const options: Highcharts.Options = {
+    const options = {
         chart: {
             type: 'column',
             zooming: {
