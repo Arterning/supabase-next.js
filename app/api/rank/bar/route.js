@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 import {NextResponse} from "next/server";
+import {supabase} from "../../../../api";
 
 export async function GET(req, res) {
     const mockData = [
@@ -30,7 +31,6 @@ export async function GET(req, res) {
         ['小慧', 24.25],
         ['宁哥', 53.50],
     ]
-
 
     return NextResponse.json({
         data

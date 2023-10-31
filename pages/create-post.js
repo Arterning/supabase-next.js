@@ -34,6 +34,12 @@ function CreatePost() {
                 {title, content, user_id: user.id, user_email: user.email}
             ])
             .single()
+
+
+        await upsert(user.id)
+
+        alert('积分+3！！')
+
         router.push(`/posts/${data.id}`)
     }
 
@@ -42,6 +48,45 @@ function CreatePost() {
             <ClipLoader color="#36D7B7" loading={loading} size={150} />
         </div>
     )
+
+    async function insert() {
+        await supabase.from('ranks')
+            .insert([
+                {user_id: user.id, vv: 0}
+            ])
+    }
+
+    async function getScore(user_id) {
+        const {data} = await supabase
+            .from('ranks')
+            .select('vv')
+            .filter('user_id', 'eq', user_id)
+            .single()
+        return data?.vv || 0;
+    }
+
+    async function upsert(user_id) {
+        const score = await getScore(user_id)
+        // alert(score)
+
+        // 执行 upsert 操作
+        const dataToUpsert = {
+            user_id: user_id,
+            vv: score + 100
+        }
+        supabase
+            .from('ranks')
+            .upsert([
+                dataToUpsert
+            ], { onConflict: ['user_id'], set: { vv: score + 100 } })
+            .then(({ data, error }) => {
+                if (error) {
+                    console.error('更新或插入数据时发生错误:', error);
+                } else {
+                    console.log('更新或插入成功:', data);
+                }
+            });
+    }
 
     return (
         <div>
