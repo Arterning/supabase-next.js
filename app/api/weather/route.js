@@ -5,7 +5,7 @@ export async function GET(req) {
     const randomWeatherData = {
         weather: [
             {
-                description: 'Partly cloudy',
+                description: 'Beauty Partly cloudy',
                 icon: '02d',
             },
         ],
