@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic'
 import Weather from "../components/weather";
 
 
@@ -6,7 +5,7 @@ import Weather from "../components/weather";
 
 const WeatherPage = () => {
     return (
-        <div className="w-full h-full bg-white-200">
+        <div className="w-1/2 mx-auto">
             <Weather />
         </div>
     );

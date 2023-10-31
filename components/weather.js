@@ -70,11 +70,13 @@ const Weather = () => {
             <h1>今天的天气</h1>
             <div>
                 <div>
+                    <div>{renderWeatherIcon(weatherData.weather[0].icon)}</div>
+                    <p>地区：长沙 </p>
                     <p>天气：{weatherData.weather[0].description}</p>
                     <p>温度：{weatherData.main.temp}°C</p>
                     <p>空气质量：{weatherData.main.humidity}%</p>
+                    <p>太阳辐射： {weatherData.main.difssi} </p>
                 </div>
-                <div>{renderWeatherIcon(weatherData.weather[0].icon)}</div>
             </div>
         </>
     );
