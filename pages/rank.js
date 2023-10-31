@@ -32,7 +32,7 @@ export default function Rank() {
                 float: 'right',
                 ...rightSprings
             }}>
-                <Image src="/chair.jpg" width={600} height={200}/>
+                <Image src="/chair.jpg" width={600} height={200} alt={"beauty"}/>
             </animated.div>
 
         </>

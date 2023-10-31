@@ -22,8 +22,8 @@ export default function Header({user}) {
         <Link href="/rank" className="m-6 p-3 rounded hover:bg-green-600">
             Rank
         </Link>
-        <Link href="/upload" className="m-6 p-3 rounded hover:bg-green-600">
-            Upload
+        <Link href="/weather" className="m-6 p-3 rounded hover:bg-green-600">
+            Weather
         </Link>
         <Link href="/profile" className="m-6 p-3 rounded hover:bg-green-600">
             Profile
