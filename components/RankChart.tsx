@@ -22,8 +22,20 @@ const RankChart = (props: HighchartsReact.Props) => {
     const [ning, setNing] = useState<any>([])
 
     useEffect(() => {
-        setNing(mock_ning)
-        setXiaohui(mock_xiaohui)
+        async function fetchData() {
+            try {
+                const res = await fetch('/api/rank');
+                return await res.json();
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+            }
+        }
+
+        fetchData().then(res => {
+            setXiaohui(res.xiaohui)
+            setNing(res.ning)
+        })
+
     }, [])
 
     const options: Highcharts.Options = {
