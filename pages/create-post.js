@@ -41,7 +41,7 @@ function CreatePost() {
 
         await upsert(user.id)
 
-        alert('积分+3！！')
+        // alert('积分+3！！')
 
         router.push(`/my-posts`)
     }

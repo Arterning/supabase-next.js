@@ -76,7 +76,7 @@ export default function TodoList() {
         }
         await addTodo(newTaskText)
         await upsert(user.id)
-        alert('积分+3')
+        // alert('积分+3')
     }
 
 
@@ -88,7 +88,7 @@ export default function TodoList() {
                 className="flex gap-2 my-2"
             >
                 <input
-                    className="rounded w-full p-2 text-gray-800"
+                    className="rounded w-full p-2 text-gray-800 border-b-2"
                     type="text"
                     placeholder="输入你的任务代办"
                     value={newTaskText}
@@ -97,7 +97,7 @@ export default function TodoList() {
                         setNewTaskText(e.target.value)
                     }}
                 />
-                <button className="btn-black" type="submit">
+                <button type="submit" className="bg-green-600 text-white font-semibold px-8 py-2 rounded-lg p-2">
                     Add
                 </button>
             </form>
@@ -141,7 +141,7 @@ const Todo = ({ todo, onDelete }: { todo: Todos; onDelete: () => void }) => {
     )
 
     return (
-        <li className="w-full block cursor-pointer hover:bg-green-500 focus:outline-none focus:bg-gray-200 transition duration-150 ease-in-out">
+        <li className="w-full block cursor-pointer hover:bg-green-500 focus:outline-none focus:bg-gray-200 transition duration-150 ease-in-out border-b-2">
             <div className="flex items-center px-4 py-4 sm:px-6">
                 <div className="min-w-0 flex-1 flex items-center">
                     <div className={`text-sm leading-5 font-medium truncate ${isCompleted ? 'line-through' : ''}`}>{todo.task}</div>
