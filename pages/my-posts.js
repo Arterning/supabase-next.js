@@ -22,6 +22,10 @@ export default function MyPosts() {
     setLoading(false)
   }
   async function deletePost(id) {
+    const result = window.confirm('您确定要删除吗？');
+    if (!result) {
+      return;
+    }
     await supabase
       .from('posts')
       .delete()

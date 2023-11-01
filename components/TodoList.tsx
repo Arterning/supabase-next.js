@@ -47,6 +47,11 @@ export default function TodoList() {
     }
 
     const deleteTodo = async (id: number) => {
+        // 显示确认对话框
+        const result = window.confirm('您确定要删除吗？');
+        if (!result) {
+            return;
+        }
         try {
             await supabase.from('todos').delete().eq('id', id).throwOnError()
             setTodos(todos.filter((x) => x.id != id))

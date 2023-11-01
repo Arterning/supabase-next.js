@@ -26,7 +26,7 @@ export default function Header({user}) {
             Weather
         </Link>
         <Link href="/profile" className="m-6 p-3 rounded hover:bg-green-600">
-            Profile
+            {user ? 'Profile' : 'Login'}
         </Link>
         <ThemeSwitch/>
     </nav>;
