@@ -1,5 +1,5 @@
 import { Database } from '@/lib/schema'
-import { useEffect, useState } from 'react'
+import {FormEvent, useEffect, useState} from 'react'
 import { supabase } from 'api'
 import {ClipLoader, DotLoader} from "react-spinners";
 import useScore from "../hooks/useScore";
@@ -68,14 +68,14 @@ export default function TodoList() {
         </div>
     )
 
-    async function submit(e) {
+    async function submit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
         if (!newTaskText) {
             alert('任务名不能为空')
             return;
         }
         await addTodo(newTaskText)
-        await upsert(user.id)
+        await upsert(user?.id)
         // alert('积分+3')
     }
 
@@ -84,7 +84,7 @@ export default function TodoList() {
         <div className="w-full">
             <h1 className="mb-12">Todo List.</h1>
             <form
-                onSubmit={submit}
+                onSubmit={(e) => submit(e)}
                 className="flex gap-2 my-2"
             >
                 <input
