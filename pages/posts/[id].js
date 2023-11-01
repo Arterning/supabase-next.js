@@ -7,6 +7,9 @@ export default function Post({ post }) {
   if (router.isFallback) {
     return <div>Loading...</div>
   }
+  if (!post) {
+    return <div>Post not found</div>
+  }
   return (
     <div>
       <h1 className="text-5xl mt-4 font-semibold tracking-wide">{post.title}</h1>

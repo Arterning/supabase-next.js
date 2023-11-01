@@ -53,8 +53,8 @@ export default function Home() {
             )
           }
         </div>
-      <div className="float-right w-4/6 h-full">
-        <img src="/webb1.jpg"/>
+      <div className="float-right w-3/6 h-full ">
+        <img src="/my.jpg" className="rounded-2xl"/>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { Database } from '@/lib/schema'
 import { useEffect, useState } from 'react'
 import { supabase } from 'api'
 import {ClipLoader, DotLoader} from "react-spinners";
+import useScore from "../hooks/useScore";
 
 type Todos = Database['public']['Tables']['todos']['Row']
 
@@ -10,6 +11,7 @@ export default function TodoList() {
     const [newTaskText, setNewTaskText] = useState('')
     const [errorText, setErrorText] = useState('')
     const [loading, setLoading] = useState(true)
+    const [upsert] = useScore()
 
     const user = supabase.auth.user()
 
@@ -66,14 +68,23 @@ export default function TodoList() {
         </div>
     )
 
+    async function submit(e) {
+        e.preventDefault()
+        if (!newTaskText) {
+            alert('任务名不能为空')
+            return;
+        }
+        await addTodo(newTaskText)
+        await upsert(user.id)
+        alert('积分+3')
+    }
+
+
     return (
         <div className="w-full">
             <h1 className="mb-12">Todo List.</h1>
             <form
-                onSubmit={(e) => {
-                    e.preventDefault()
-                    addTodo(newTaskText)
-                }}
+                onSubmit={submit}
                 className="flex gap-2 my-2"
             >
                 <input

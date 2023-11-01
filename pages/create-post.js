@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import "easymde/dist/easymde.min.css"
 import {supabase} from '../api'
 import {ClipLoader} from "react-spinners";
+import useScore from "../hooks/useScore";
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), {ssr: false})
 const initialState = {title: '', content: ''}
@@ -14,6 +15,8 @@ function CreatePost() {
     const {title, content} = post
     const router = useRouter()
     const [loading, setLoading] = useState(false)
+
+    const [upsert] =  useScore()
 
     function onChange(e) {
         setPost(() => ({...post, [e.target.name]: e.target.value}))
@@ -40,7 +43,7 @@ function CreatePost() {
 
         alert('积分+3！！')
 
-        router.push(`/posts/${data.id}`)
+        router.push(`/my-posts`)
     }
 
     if (loading) return (
@@ -49,44 +52,6 @@ function CreatePost() {
         </div>
     )
 
-    async function insert() {
-        await supabase.from('ranks')
-            .insert([
-                {user_id: user.id, vv: 0}
-            ])
-    }
-
-    async function getScore(user_id) {
-        const {data} = await supabase
-            .from('ranks')
-            .select('vv')
-            .filter('user_id', 'eq', user_id)
-            .single()
-        return data?.vv || 0;
-    }
-
-    async function upsert(user_id) {
-        const score = await getScore(user_id)
-        // alert(score)
-
-        // 执行 upsert 操作
-        const dataToUpsert = {
-            user_id: user_id,
-            vv: score + 100
-        }
-        supabase
-            .from('ranks')
-            .upsert([
-                dataToUpsert
-            ], { onConflict: ['user_id'], set: { vv: score + 100 } })
-            .then(({ data, error }) => {
-                if (error) {
-                    console.error('更新或插入数据时发生错误:', error);
-                } else {
-                    console.log('更新或插入成功:', data);
-                }
-            });
-    }
 
     return (
         <div>
