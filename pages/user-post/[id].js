@@ -1,26 +1,17 @@
 // pages/my-posts.js
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { supabase } from '../api'
-import {ClipLoader} from "react-spinners";
+import { supabase } from '../../api'
 
-export default function MyPosts() {
-  const [posts, setPosts] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetchPosts()
-  }, [])
-
-  async function fetchPosts() {
-    const user = supabase.auth.user()
-    const { data } = await supabase
+async function fetchPosts() {
+  const { data } = await supabase
       .from('posts')
       .select('*')
-      .filter('user_id', 'eq', user.id)
-    setPosts(data)
-    setLoading(false)
-  }
+  return data;
+}
+
+
+export default function UserPost({posts}) {
+
   async function deletePost(id) {
     const result = window.confirm('您确定要删除吗？');
     if (!result) {
@@ -30,14 +21,10 @@ export default function MyPosts() {
       .from('posts')
       .delete()
       .match({ id })
-    fetchPosts()
   }
 
-  if (loading) return (
-      <div className="w-full h-ful">
-        <ClipLoader className="mx-auto my-auto" color="#36D7B7" loading={loading} size={150} />
-      </div>
-  )
+  if (!posts) return <p className="text-2xl">No posts.</p>
+
 
   return (
     <div>
@@ -58,4 +45,41 @@ export default function MyPosts() {
       }
     </div>
   );
+}
+
+
+export async function getStaticPaths() {
+  const { data, error } = await supabase
+      .from('posts')
+      .select()
+  const userIds = new Set();
+  if (!data) {
+    return {
+      paths: [],
+      fallback: true
+    }
+  }
+  const paths = data
+      .filter(post => {
+        if (!userIds.has(post.user_id)) {
+          userIds.add(post.user_id);
+          return true;
+        }
+        return false;
+      }).map(post => ({ params: { id: JSON.stringify(post.user_id) }}))
+  return {
+    paths,
+    fallback: true
+  }
+}
+
+export async function getStaticProps ({ params: { id } }) {
+  const all = await fetchPosts();
+  const posts = all.filter(post => post.user_id === id);
+  return {
+    props: {
+      posts,
+      revalidate: 3,
+    }
+  }
 }

@@ -43,7 +43,7 @@ function CreatePost() {
 
         // alert('积分+3！！')
 
-        router.push(`/my-posts`)
+        router.push(`/user-post/${user.id}`)
     }
 
     if (loading) return (
