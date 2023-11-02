@@ -76,6 +76,10 @@ export async function getStaticPaths() {
 export async function getStaticProps ({ params: { id } }) {
   const all = await fetchPosts();
   const posts = all.filter(post => post.user_id === id);
+
+  // 将posts按insert_at字段倒序排列
+  posts.sort((a, b) => new Date(b.inserted_at) - new Date(a.inserted_at));
+
   return {
     props: {
       posts,

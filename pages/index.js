@@ -7,6 +7,9 @@ async function fetchPosts() {
     const { data, error } = await supabase
         .from('posts')
         .select()
+        .order('inserted_at', { ascending: false })
+        .range(0, 5); // 返回前6个记录
+
     return data
 }
 
@@ -30,7 +33,7 @@ export default function Home({ posts }) {
                 <title>ArterNing Work</title>
             </Head>
 
-            <h1 className="text-3xl font-semibold tracking-wide mt-6 mb-2">Posts</h1>
+            <h1 className="text-3xl font-semibold tracking-wide mt-6 mb-2">Recent Posts</h1>
             <div className="float-left w-2/6">
                 {
                     posts.map(post => (

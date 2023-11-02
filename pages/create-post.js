@@ -28,8 +28,7 @@ function CreatePost() {
             return
         }
         const user = supabase.auth.user()
-        const id = uuid()
-        post.id = id
+        post.id = uuid()
         setLoading(true)
         const {data} = await supabase
             .from('posts')
@@ -44,6 +43,10 @@ function CreatePost() {
         // alert('积分+3！！')
 
         router.push(`/user-post/${user.id}`)
+    }
+
+    function cancel() {
+        router.push(`/`)
     }
 
     if (loading) return (
@@ -69,6 +72,9 @@ function CreatePost() {
                 className="mb-4 bg-green-600 text-white font-semibold px-8 py-2 rounded-lg"
                 onClick={createNewPost}
             >Create Post
+            </button>
+            <button onClick={cancel} className="mb-4 bg-gray-400 text-white font-semibold px-8 py-2 rounded-lg ml-3">
+                Cancel
             </button>
         </div>
     )
