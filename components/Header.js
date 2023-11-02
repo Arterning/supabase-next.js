@@ -25,6 +25,9 @@ export default function Header({user}) {
         <Link href="/weather" className="m-6 p-3 rounded hover:bg-green-600">
             Weather
         </Link>
+        <Link href="/together" className="m-6 p-3 rounded hover:bg-green-600">
+            Together
+        </Link>
         <Link href="/profile" className="m-6 p-3 rounded hover:bg-green-600">
             {user ? 'Profile' : 'Login'}
         </Link>
