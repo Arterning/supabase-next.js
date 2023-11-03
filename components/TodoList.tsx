@@ -82,7 +82,7 @@ export default function TodoList() {
 
     return (
         <div className="w-full">
-            <h1 className="mb-12">Todo List.</h1>
+            <h1 className="mb-12">Todo List</h1>
             <form
                 onSubmit={(e) => submit(e)}
                 className="flex gap-2 my-2"

@@ -66,7 +66,7 @@ const Weather = () => {
     }
 
     return (
-        <>
+        <div className={"mx-auto w-1/2"}>
             <h1>今天的天气</h1>
             <div>
                 <div>
@@ -78,7 +78,7 @@ const Weather = () => {
                     <p>太阳辐射： {weatherData.main.difssi} </p>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
