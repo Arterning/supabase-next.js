@@ -13,7 +13,6 @@
     "@supabase/auth-ui-shared": "^0.1.8",
     "@supabase/supabase-js": "^1.13.1",
     "@supabase/ui": "^0.27.2",
-    "@tailwindcss/typography": "^0.4.1",
     "@types/node": "^20.8.8",
     "@vercel/blob": "^0.8.3",
     "easymde": "^2.15.0",
@@ -31,15 +30,19 @@
     "react-markdown": "^6.0.2",
     "react-simplemde-editor": "^5.0.1",
     "react-spinners": "^0.13.8",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.2.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
     "@types/nprogress": "^0.2.2",
     "@types/react": "18.2.31",
     "@types/react-dom": "18.2.14",
     "autoprefixer": "^10.2.6",
     "postcss": "^8.3.0",
-    "tailwindcss": "^2.1.4"
+    "tailwindcss": "^3.3.0"
   }
 }

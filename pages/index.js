@@ -33,8 +33,8 @@ export default function Home({ posts }) {
                 <title>ArterNing Work</title>
             </Head>
 
-            <h1 className="text-3xl font-semibold tracking-wide mt-6 mb-2">Recent Posts</h1>
-            <div className="w-full">
+            <h1 className="p-6 text-3xl font-semibold tracking-wide mt-6 mb-2">Recent Posts</h1>
+            <div className="w-full p-6">
                 {
                     posts.map(post => (
                         (<Link

@@ -8,11 +8,11 @@ export default function Header({user}) {
         </Link>
         {user && (
             <>
-                <Link href="/create-post" className="m-6 p-3 rounded hover:bg-green-600">
-                    Create Post
-                </Link>
                 <Link href={`/user-post/${user.id}`} className="m-6 p-3 rounded hover:bg-green-600">
                     My Posts
+                </Link>
+                <Link href="/create-post" className="m-6 p-3 rounded hover:bg-green-600">
+                    Create Post
                 </Link>
                 <Link href="/todo" className="m-6 p-3 rounded hover:bg-green-600">
                     TodoTasks

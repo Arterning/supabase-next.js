@@ -19,9 +19,9 @@ function MyApp({ Component, pageProps }) {
     setUser(user)
   }
   return (
-    <div>
+    <div className={"h-full"}>
       <Header user={user}/>
-      <div className="py-8 px-16">
+      <div style={{height: '100%'}}>
         <NProgress/>
         <Component {...pageProps} />
       </div>

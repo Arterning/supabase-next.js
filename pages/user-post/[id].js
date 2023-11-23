@@ -27,7 +27,7 @@ export default function UserPost({posts}) {
 
 
   return (
-    <div>
+    <div className={"p-6"}>
       <h1 className="text-3xl font-semibold tracking-wide mt-6 mb-2">My Posts</h1>
       {
         posts.map((post, index) => (

@@ -25,9 +25,11 @@ const TogetherPage = () => {
     }, []);
 
     return (
-        <div>
-            <h1>我们在一起</h1>
-            <p>{`${timeTogether.days}天 ${timeTogether.hours}小时 ${timeTogether.minutes}分钟 ${timeTogether.seconds}秒`}啦</p>
+        <div className={"bg-mountain h-full bg-no-repeat"}>
+            <div className={"w-1/2 mx-auto py-60 px-20"}>
+                <span className={"text-2xl p-2"}>我们在一起</span>
+                <p className={"text-xl font-semibold text-amber-400/60"}>{`${timeTogether.days}天 ${timeTogether.hours}小时 ${timeTogether.minutes}分钟 ${timeTogether.seconds}秒`}啦!</p>
+            </div>
         </div>
     );
 };

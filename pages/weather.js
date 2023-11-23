@@ -5,7 +5,7 @@ import Weather from "../components/weather";
 
 const WeatherPage = () => {
     return (
-        <div className="h-screen bg-no-repeat">
+        <div className="bg-mountain h-full bg-no-repeat">
             <Weather />
         </div>
     );
